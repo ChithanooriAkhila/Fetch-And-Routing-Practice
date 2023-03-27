@@ -13,8 +13,10 @@ class BlogItemDetails extends Component {
   getBlogDetails = async () => {
     const {match} = this.props
     const {id} = match.params
+    console.log(id)
     const response = await fetch(`https://apis.ccbp.in/blogs/${id}`)
-    const blog = response.json()
+    const blog = await response.json()
+    console.log(blog)
     const updatedData = {
       id: blog.id,
       title: blog.title,
